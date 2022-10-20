@@ -91,15 +91,13 @@ function setPriceItem() {
 }
 
 function addCart(id, name, color, price, img) {
-    // console.log(rupiah("1500000"));
     if ($('.cart-box .cart-body').find('.'+id).length) {
-        // var nPrice = price.replace(/\./g,'');
-        // price = parseInt(price);
+        // add qty Item
         var qty = parseInt($('.cart-box .cart-body .'+id+' #item-qty').val()) + 1;
         $('.cart-box .cart-body .'+id+' #item-qty').val(qty);
         setPriceItem();
     }else{
-        // console.log('gaada');
+        // New Item
         $('.cart-body').prepend(''+
             '<div class="cart-item '+ id +'">'+
                 '<div class="item-img">'+
@@ -126,7 +124,6 @@ function addCart(id, name, color, price, img) {
 }
 
 function slideItem() {
-    // var newItem = $('.slide-box .slide-item:eq(7)').get(0);
     $('.slide-box').prepend($('.slide-box .slide-item:eq(7)').get(0));
     $('.slide-item').width(($('.slide-item').parent().width() / 5)+20);
     $('.slide-item').height(($('.slide-item').parent().width() / 5)+20);
@@ -136,10 +133,7 @@ function slideItem() {
     
     for (let i = 0; i < $(".slide-box .slide-item").length; i++) {
         $('.slide-box .slide-item:eq('+i+')').css({"transform": "translateX(" + (wSlideItem * i) + "px)"});
-        // console.log(($('.slide-item').width()-5)/2);
     }
-
-    // console.log(($('.slide-item').width()-5)/2);
     $('.slide-item').css('transition', 'all 500ms ease');
 }
 
@@ -180,7 +174,6 @@ $(document).ready(function () {
         var price = $(this).parents('.img-box').siblings('.caption').find('.pro-price').attr('price');
         var img = $(this).parent().siblings('img').attr('src');
         addCart(id, name, color, price, img);
-        // console.log(id);
     });
 
     $("#inputSearch").on("keyup", function() {
