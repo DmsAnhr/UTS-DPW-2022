@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-width, initial-scale=1">
+    <title>BigJoe</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/FontAwesome/all.css">
+    <link rel="stylesheet" href="css/FontAwesome/light.css">
+    <link rel="stylesheet" href="css/FontAwesome/regular.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <header class="head-nav">
+            <div class="navs">
+                <div class="logo">
+                    <img src="img/Logo.gif" alt="">
+                </div>
+                <div class="navbar d-flex align-items-center justify-content-around">
+                    <a href="shop.html">
+                        <div class="nav-items items-md">SHOP</div>
+                    </a>
+                    <!-- <div class="nav-items items-md">REWARD</div>
+                    <div class="nav-items items-md">SALE</div>
+                    <div class="nav-items items-md">LOGIN</div> -->
+                    <div class="nav-items" onclick="openSearch()"><i class="fas fa-search ml-2"></i></div>
+                    <div class="nav-items" onclick="cartOpen()"><i class="far fa-shopping-bag" onclick="cartOpen()"></i>
+                    </div>
+                    <span class="bedge-item" onclick="cartOpen()">0</span>
+                    <div class="nav-items bars-nav strip"><i class="fas fa-bars"></i></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="close-cart close" onclick="cartClose()"></div>
+        <div class="cart-box">
+            <div class="cart-top">
+                <h3>Cart</h3>
+                <i class="fal fa-times close" onclick="cartClose()"
+                    style="cursor: pointer;font-size: 25px;color: #e0e0da;"></i>
+            </div>
+            <div class="cart-body">
+                <div class="cart-item d-army">
+                    <div class="item-img">
+                        <img src="img/BeanBag/d-army.jpg" alt="" height="100%">
+                    </div>
+                    <div class="item-detail">
+                        <h3>Dorm</h3>
+                        <div class="item-color-box">
+                            <h6>Color :</h6>
+                            <div class="item-color" style="background-color: rgb(40, 78, 51);"></div>
+                        </div>
+                        <h4 class="price-item" nPrice="650000" price="650000">Rp. 650.000</h4>
+                        <div class="item-qty">
+                            <i class="fas fa-trash-alt remove-item"
+                                style="font-size: 17px;cursor: pointer;color: red;margin-right: 30px;"></i>
+                            <i class="fas fa-minus-circle minus-item"
+                                style="font-size: 17px;cursor: pointer;color: #636668;"></i>
+                            <input type="number" name="item-qty" id="item-qty" min="1" max="99" value="1">
+                            <i class="fas fa-plus-circle plus-item"
+                                style="font-size: 17px;cursor: pointer;color: #636668;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-btn-box">
+            <div style="display: flex;justify-content: space-between;align-items: baseline;padding: 0 5px 5px;">
+                <h4 style="font-weight: 500;">Total :</h4>
+                <h3 class="total-price">Rp. 100.000</h4>
+            </div>
+            <button type="button">CHECKOUT</button>
+        </div>
+
+        <div class="close-search" onclick="closeSearch()">
+            <i class="fal fa-times" style="color: #a9a9a9;font-size: 50px;"></i>
+        </div>
+        <div class="search">
+            <input type="text" id="inputSearch" placeholder="search here...">
+            
+            <div class="prod-list" style="">
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/d-army.jpg" alt="">
+                    <div class="list-detail">
+                        <h3>Dorm - army</h3>
+                        <div style="background-color: #284e33;"></div>
+                        <h4>Rp. 650.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('d-army', 'Dorm', '#284e33', '650000', 'img/BeanBag/d-army.jpg')">add to cart</button>
+                </div>
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/d-black.png" alt="">
+                    <div class="list-detail">
+                        <h3>Dorm - black</h3>
+                        <div style="background-color: #141414;"></div>
+                        <h4>Rp. 650.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('d-army', 'Dorm', '#141414', '650000', 'img/BeanBag/d-black.png')">add to cart</button>
+                </div>
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/fuf.jpg" alt="">
+                    <div class="list-detail">
+                        <h3>Fuf</h3>
+                        <div style="background-color: #142f50;"></div>
+                        <h4>Rp. 350.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('fuf', 'Fuf', '#142f50', '350000', 'img/BeanBag/fuf.jpg')">add to cart</button>
+                </div>
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/imperial.jpg" alt="">
+                    <div class="list-detail">
+                        <h3>Imperial</h3>
+                        <div style="background-color: #aaaaaa;"></div>
+                        <h4>Rp. 1.200.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('imperial', 'Imperial', '#aaaaaa', '1200000', 'img/BeanBag/imperial.jpg')">add to cart</button>
+                </div>
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/m-aqua.png" alt="">
+                    <div class="list-detail">
+                        <h3>Milano - aqua</h3>
+                        <div style="background-color: #52d4ca;"></div>
+                        <h4>Rp. 500.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('m-aqua', 'Milano', '#52d4ca', '500000', 'img/BeanBag/m-aqua.png')">add to cart</button>
+                </div>
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/m-black.png" alt="">
+                    <div class="list-detail">
+                        <h3>Milano - black</h3>
+                        <div style="background-color: #141414;"></div>
+                        <h4>Rp. 500.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('m-black', 'Milano', '#141414', '500000', 'img/BeanBag/m-black.png')">add to cart</button>
+                </div>
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/pool.jpg" alt="">
+                    <div class="list-detail">
+                        <h3>Captain's</h3>
+                        <div style="background-color: #0161b6;"></div>
+                        <h4>Rp. 800.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('pool', 'Captain s', '#142f50161b60', '800000', 'img/BeanBag/pool.jpg')">add to cart</button>
+                </div>
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/s-yellow.png" alt="">
+                    <div class="list-detail">
+                        <h3>Slice - yellow</h3>
+                        <div style="background-color: #fae952;"></div>
+                        <h4>Rp. 150.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('s-yellow', 'Slice', '#fae952', '150000', 'img/BeanBag/s-yellow.png')">add to cart</button>
+                </div>
+                <div class="prod-list-item">
+                    <img src="img/BeanBag/s-orange.jpg" alt="">
+                    <div class="list-detail">
+                        <h3>Slice - orange</h3>
+                        <div style="background-color: #fd7c04;"></div>
+                        <h4>Rp. 150.000</h4>
+                    </div>
+                    <button type="button" onclick="addCart('s-orange', 'Slice', '#fd7c04', '150000', 'img/BeanBag/s-orange.jpg')">add to cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-2" style="padding-top: 70px;">
+            <div class="product">
+                <div class="img-box">
+                    <img src="img/BeanBag/d-army.jpg" alt="">
+                    <div class="overlay">
+                        <button type="button" class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                    <h3 class="pro-name">Dorm</h3>
+                    <h5 class="pro-price" price="650000">Rp. 650.000</h5>
+                    <div class="color-pick">
+                        <div class="color-opt active" itemId="d-army" style="background-color: #284e33;"
+                            img-color="img/BeanBag/d-army.jpg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-box">
+                    <img src="img/BeanBag/s-orange.jpg" alt="">
+                    <div class="overlay">
+                        <button type="button" class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <h3 class="pro-name">Slice</h3>
+                    <h5 class="pro-price" price="150000">Rp. 150.000</h5>
+                    <div class="color-pick">
+                        <div class="color-opt active" itemId="s-yellow" style="background-color: #fae952;"
+                            img-color="img/BeanBag/s-yellow.png"></div>
+                        <div class="color-opt" itemId="s-orange" style="background-color: #fd7c04;"
+                            img-color="img/BeanBag/s-orange.jpg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-box">
+                    <img src="img/BeanBag/fuf.jpg" alt="">
+                    <div class="overlay">
+                        <button type="button" class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <h3 class="pro-name">Fuf</h3>
+                    <h5 class="pro-price" price="350000">Rp. 350.000</h5>
+                    <div class="color-pick">
+                        <div class="color-opt active" itemId="fuf" style="background-color: #142f50;"
+                            img-color="img/BeanBag/fuf.jpg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-box">
+                    <img src="img/BeanBag/imperial.jpg" alt="">
+                    <div class="overlay">
+                        <button type="button" class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                    <h3 class="pro-name">Imperial</h3>
+                    <h5 class="pro-price" price="1200000">Rp. 1.200.000</h5>
+                    <div class="color-pick">
+                        <div class="color-opt active" itemId="imperial" style="background-color: #aaaaaa;"
+                            img-color="img/BeanBag/imperial.jpg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-box">
+                    <img src="img/BeanBag/m-aqua.png" alt="">
+                    <div class="overlay">
+                        <button type="button" class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star "></span>
+                    </div>
+                    <h3 class="pro-name">Milano</h3>
+                    <h5 class="pro-price" price="500000">Rp. 500.000</h5>
+                    <div class="color-pick">
+                        <div class="color-opt active" itemId="m-aqua" style="background-color: #52d4ca;"
+                            img-color="img/BeanBag/m-aqua.png"></div>
+                        <div class="color-opt" itemId="m-aqua" style="background-color: #141414;"
+                            img-color="img/BeanBag/m-black.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-box">
+                    <img src="img/BeanBag/d-black.png" alt="">
+                    <div class="overlay">
+                        <button type="button" class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                    <h3 class="pro-name">Dorm</h3>
+                    <h5 class="pro-price" price="650000">Rp. 650.000</h5>
+                    <div class="color-pick">
+                        <div class="color-opt active" itemId="d-black" style="background-color: #141414;"
+                            img-color="img/BeanBag/d-black.png"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-box">
+                    <img src="img/BeanBag/pool.jpg" alt="">
+                    <div class="overlay">
+                        <button type="button" class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                    </div>
+                    <h3 class="pro-name">Captain's</h3>
+                    <h5 class="pro-price" price="800000">Rp. 800.000</h5>
+                    <div class="color-pick">
+                        <div class="color-opt active" itemId="pool" style="background-color: #0161b6;"
+                            img-color="img/BeanBag/pool.jpg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-box">
+                    <img src="img/BeanBag/s-yellow.png" alt="">
+                    <div class="overlay">
+                        <button type="button" class="btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="stars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <h3 class="pro-name">Slice</h3>
+                    <h5 class="pro-price" price="150000">Rp. 150.000</h5>
+                    <div class="color-pick">
+                        <div class="color-opt active" itemId="s-yellow" style="background-color: #fae952;"
+                            img-color="img/BeanBag/s-yellow.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-3">
+            <h1>#AbsurdlyAwesome</h1>
+            <h5>Share your absurdly awesome moments.</h5>
+            <div class="slide-con">
+                <div class="barrier">
+                    <div class="block"></div>
+                    <div class="slide-toggle" direct="left">
+                        <i class="fal fa-chevron-left"></i>
+                    </div>
+                </div>
+                <div class="slide-box">
+                    <div class="slide-item" style="background-image: url(img/slide/carou-1.jpg);">
+                        <div class="overlay">
+                            <i class="fab fa-instagram" style="font-size: 40px;color: #1c1d1d;"></i>
+                            <button type="button">Shop This Look</button>
+                        </div>
+                    </div>
+                    <div class="slide-item" style="background-image: url(img/slide/carou-2.jpg);">
+                        <div class="overlay">
+                            <i class="fab fa-instagram" style="font-size: 40px;color: #1c1d1d;"></i>
+                            <button type="button">Shop This Look</button>
+                        </div>
+                    </div>
+                    <div class="slide-item" style="background-image: url(img/slide/carou-3.jpg);">
+                        <div class="overlay">
+                            <i class="fab fa-instagram" style="font-size: 40px;color: #1c1d1d;"></i>
+                            <button type="button">Shop This Look</button>
+                        </div>
+                    </div>
+                    <div class="slide-item" style="background-image: url(img/slide/carou-4.jpg);">
+                        <div class="overlay">
+                            <i class="fab fa-instagram" style="font-size: 40px;color: #1c1d1d;"></i>
+                            <button type="button">Shop This Look</button>
+                        </div>
+                    </div>
+                    <div class="slide-item" style="background-image: url(img/slide/carou-5.jpg);">
+                        <div class="overlay">
+                            <i class="fab fa-instagram" style="font-size: 40px;color: #1c1d1d;"></i>
+                            <button type="button">Shop This Look</button>
+                        </div>
+                    </div>
+                    <div class="slide-item" style="background-image: url(img/slide/carou-6.jpg);">
+                        <div class="overlay">
+                            <i class="fab fa-instagram" style="font-size: 40px;color: #1c1d1d;"></i>
+                            <button type="button">Shop This Look</button>
+                        </div>
+                    </div>
+                    <div class="slide-item" style="background-image: url(img/slide/carou-7.jpg);">
+                        <div class="overlay">
+                            <i class="fab fa-instagram" style="font-size: 40px;color: #1c1d1d;"></i>
+                            <button type="button">Shop This Look</button>
+                        </div>
+                    </div>
+                    <div class="slide-item" style="background-image: url(img/slide/carou-8.jpg);">
+                        <div class="overlay">
+                            <i class="fab fa-instagram" style="font-size: 40px;color: #1c1d1d;"></i>
+                            <button type="button">Shop This Look</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="barrier">
+                    <div class="slide-toggle" direct="right">
+                        <i class="fal fa-chevron-right"></i>
+                    </div>
+                    <div class="block"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <h4>
+                We don’t like to play favorites, but some of our products tend to sell out quickly! Check out these
+                popular sellers to
+                find your next absurdly awesome Big Joe.
+            </h4>
+            <div class="info">
+                <div class="area-1">
+                    <h5>GET EMAILS. GET DEALS.</h5>
+                    <p>
+                        We're here to bring awesome to your inbox! Join our email list for <br>
+                        updates on new arrivals and exclusive deals. <b>Plus, get 15% off your first <br>
+                            purchase*.</b><i>(excludes sale items)</i>
+                    </p>
+                    <div class="input-group">
+                        <input type="email" placeholder="Enter your email">
+                        <i class="fal fa-envelope" style="font-size: 25px;"></i>
+                    </div>
+                    <div class="medsos-group">
+                        <i class="fab fa-instagram" style="font-size: 26px;margin-right: 10px;"></i>
+                        <i class="fab fa-facebook" style="font-size: 26px;margin-right: 10px;"></i>
+                        <i class="fab fa-youtube" style="font-size: 26px;margin-right: 10px;"></i>
+                        <i class="fab fa-pinterest" style="font-size: 26px;margin-right: 10px;"></i>
+                    </div>
+                    <h6>Powered by dms.anhr</h6>
+                </div>
+                <div class="area-2">
+                    <div style="margin-right: 100px;">
+                        <h5>Search</h5>
+                        <h5>Our Story</h5>
+                        <h5>FAQs</h5>
+                        <h5>Reviews</h5>
+                        <h5>Gift Cards</h5>
+                    </div>
+                    <div style="margin-right: 30px;">
+                        <h5>Contact us</h5>
+                        <h5>Terms</h5>
+                        <h5>Return Policy</h5>
+                        <h5>Privacy Policy</h5>
+                        <h5>Request Fabric Samples</h5>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/FontAwesome/all.js"></script>
+    <script src="js/FontAwesome/light.js"></script>
+    <script src="js/FontAwesome/regular.js"></script>
+
+    <script src="js/script.js"></script>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>
