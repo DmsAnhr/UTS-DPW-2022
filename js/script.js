@@ -269,7 +269,6 @@ $(document).ready(function () {
 });
 
 
-
 $(window).resize(function () {
     $(this).scrollTop(0);
     location.reload();
