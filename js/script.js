@@ -112,9 +112,9 @@ function addCart(id, name, color, price, img) {
                     '<h4 class="price-item" nPrice="'+ price +'" price="'+ price +'">Rp. '+ rupiah(price.toString()) +'</h4>'+
                     '<div class="item-qty">'+
                         '<i class="fas fa-trash-alt remove-item" style="font-size: 17px;cursor: pointer;color: red;margin-right: 30px;"></i>'+
-                        '<i class="fas fa-minus-circle minus-item" style="font-size: 17px;cursor: pointer;color: #636668;"></i>'+
+                        '<i class="fas fa-minus minus-item" style="font-size: 17px;cursor: pointer;color: #636668;"></i>'+
                         '<input type="number" name="item-qty" id="item-qty" min="1" max="99" value="1">'+
-                        '<i class="fas fa-plus-circle plus-item" style="font-size: 17px;cursor: pointer;color: #636668;"></i>'+
+                        '<i class="fas fa-plus plus-item" style="font-size: 17px;cursor: pointer;color: #636668;"></i>'+
                     '</div>'+
                 '</div>'+
             '</div>'
